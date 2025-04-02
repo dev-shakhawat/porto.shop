@@ -1,12 +1,14 @@
-import HeaderBottom from "./components/Header/HeaderBottom"
-import HeaderTop from "./components/Header/HeaderTop"
+import Footer from "./components/Footer/Footer.jsx"
+import Header from "./components/Header/index.jsx"
+import Product from "./components/Product/Product.jsx"
 
 function App() {
 
   return (
     <>
-      <HeaderTop/>
-      <HeaderBottom/>
+      <Header />
+      <Product/>
+      <Footer/>
     </>
   )
 }

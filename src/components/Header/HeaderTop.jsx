@@ -2,51 +2,62 @@ import React from 'react'
 
 
 
+
+// icons
+import { FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+import List from '../common/List';
+
 const HeaderTop = () => {
+   
+  const headertoplist = [
+    {list : "About"},
+    {list : "Our Stores"},
+    {list : "Blog"},
+    {list : "Contact"},
+    {list : "Help & FAQs"},
+    {list : "Track Order"},
+  ]
+
+  const headersocial = [ 
+    {list : <FaFacebookF />},
+    {list : <FaXTwitter />},
+    {list : <FaLinkedinIn />}
+   ]
+
   return (
-    <div className="bg-gray-100 py-2 text-xs">
-      <div className="container mx-auto px-4">
+    <div className=" py-2 text-xs">
+      <div className="container ">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Left side - Shipping info */}
-          <div className="mb-2 md:mb-0">
-            <span className="font-medium">FREE RETURNS, STANDARD SHIPPING ORDERS $99+</span>
+          <div className="mb-2 ml-6 md:mb-0">
+            <span className="font-semibold text-primary/80 text-[11px]   ">FREE RETURNS, STANDARD SHIPPING ORDERS $99+</span>
           </div>
 
           {/* Right side - Navigation links */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <a href="#" className="hover:text-gray-600">About</a>
-            <a href="#" className="hover:text-gray-600">Our Stores</a>
-            <a href="#" className="hover:text-gray-600">Blog</a>
-            <a href="#" className="hover:text-gray-600">Contact</a>
-            <a href="#" className="hover:text-gray-600">Help & FAQs</a>
-            <a href="#" className="hover:text-gray-600">Track Order</a>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 font-semibold text-primary/80   ">
+          <List lists={headertoplist} stylebx={"border-r-2 border-quaternary/20  flex gap-4 md:gap-6 pr-4  " } stylels={"hover:text-gray-600" } islink={"#"} />
             
+            <div className="relative group border-r-2 border-quaternary/20 pr-4 outline-0 ">
             {/* Currency selector */}
-            <div className="relative group">
-              <button className="flex items-center hover:text-gray-600">
-                USD 
-              </button>
-              <div className="absolute right-0 hidden group-hover:block bg-white shadow-md z-10 min-w-[120px]">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">USD</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">EUR</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">GBP</a>
-              </div>
+              <select name="currency" id="currency" className=' border-0 outline-0  '>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+              </select>
+              {/* Language selector */}
+              <select name="lang" id="lang" className=' border-0 outline-0 ml-4 '>
+                <option value="USD">ENG</option>
+                <option value="EUR">BN</option>
+              </select>
             </div>
 
-            {/* Language selector */}
-            <div className="relative group">
-              <button className="flex items-center hover:text-gray-600">
-                ENG 
-              </button>
-              <div className="absolute right-0 hidden group-hover:block bg-white shadow-md z-10 min-w-[120px]">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">ENG</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">ESP</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">FRA</a>
-              </div>
-            </div>
+            {/* social media */}
+            <List stylebx={'flex gap-4'} islink={'#'}  lists={headersocial} />
           </div>
         </div>
       </div>
+      <hr  className=' mt-4 bg-quaternary opacity-[.08] '/>
     </div>
   )
 }

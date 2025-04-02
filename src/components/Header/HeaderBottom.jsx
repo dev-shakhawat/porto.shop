@@ -15,7 +15,7 @@ export default function HeaderBottom() {
   const [cartCount, setCartCount] = useState(1);
 
   return (
-    <nav className="shadow-md">
+    <div >
       <div className="container">
         <div className="flex items-center gap-[71px] justify-between px-6 py-3 bg-white ">
           {/* Logo */}
@@ -63,6 +63,6 @@ export default function HeaderBottom() {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
